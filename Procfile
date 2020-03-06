@@ -1,0 +1,1 @@
+web: gunicorn recess_django.wsgi
