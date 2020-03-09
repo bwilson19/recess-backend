@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import current_user, UserList
 from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
@@ -13,4 +14,6 @@ urlpatterns = [
     path('posts/<int:pk>', views.PostDetail.as_view(), name="post_detail"),
     path('comments/', views.CommentList.as_view(), name="comment_list"),
     path('comments/<int:pk>', views.CommentDetail.as_view(), name="comment_detail"),
+    path('current_user/', current_user),
+    path('users/', UserList.as_view())
 ]
