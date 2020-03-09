@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 
 
 class GameList(generics.ListCreateAPIView):
+    permission_classes = (permissions.AllowAny,)
     queryset = Game.objects.all()
     serializer_class = GameSerializer
 
@@ -19,6 +20,7 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class LeagueList(generics.ListCreateAPIView):
+    permission_classes = (permissions.AllowAny,)
     queryset = League.objects.all()
     serializer_class = LeagueSerializer
 
@@ -29,6 +31,7 @@ class LeagueDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class UserProfileList(generics.ListCreateAPIView):
+    permission_classes = (permissions.AllowAny,)
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
@@ -39,6 +42,7 @@ class UserProfileDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class PostList(generics.ListCreateAPIView):
+    permission_classes = (permissions.AllowAny,)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
@@ -49,6 +53,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CommentList(generics.ListCreateAPIView):
+    permission_classes = (permissions.AllowAny,)
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
