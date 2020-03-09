@@ -15,6 +15,7 @@ class GameList(generics.ListCreateAPIView):
 
 
 class GameDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.AllowAny,)
     queryset = Game.objects.all()
     serializer_class = GameSerializer
 
@@ -26,6 +27,7 @@ class LeagueList(generics.ListCreateAPIView):
 
 
 class LeagueDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.AllowAny,)
     queryset = League.objects.all()
     serializer_class = LeagueSerializer
 
@@ -37,6 +39,8 @@ class UserProfileList(generics.ListCreateAPIView):
 
 
 class UserProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.AllowAny,)
+
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
@@ -48,6 +52,8 @@ class PostList(generics.ListCreateAPIView):
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.AllowAny,)
+
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
@@ -59,6 +65,8 @@ class CommentList(generics.ListCreateAPIView):
 
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.AllowAny,)
+
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
