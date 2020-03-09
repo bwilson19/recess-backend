@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'recess',
     'rest_framework',
     'corsheaders',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -69,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -100,6 +104,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 # Internationalization
@@ -135,3 +147,7 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'recess_django.utils.my_jwt_response_handler'
 }
+
+SOCIAL_AUTH_FACEBOOK_KEY = '162648184730503
+'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '201612a818cb2d5f6a30576896497a28'
