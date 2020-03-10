@@ -22,7 +22,7 @@ class Game(models.Model):
     zipcode = models.CharField(max_length=5)
     date = models.DateField()
     info = models.TextField()
-    image = models.ImageField(blank=True)
+    image = models.TextField(blank=True)
     league = models.ForeignKey(
         League, on_delete=models.CASCADE, related_name='games')
 
