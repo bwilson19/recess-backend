@@ -7,12 +7,12 @@ from django.contrib.auth.models import User
 class GameSerializer(serializers.HyperlinkedModelSerializer):
     league = serializers.HyperlinkedRelatedField(
         view_name='league_detail',
-     
+        read_only=True
     )
     posts = serializers.HyperlinkedRelatedField(
         view_name='post_detail',
         many=True,
-        
+        read_only=True
     )
     game_url = serializers.ModelSerializer.serializer_url_field(
         view_name='game_detail')
@@ -27,7 +27,7 @@ class LeagueSerializer(serializers.HyperlinkedModelSerializer):
     games = serializers.HyperlinkedRelatedField(
         view_name='game_detail',
         many=True,
-      
+        read_only=True
     )
     league_url = serializers.ModelSerializer.serializer_url_field(
         view_name='league_detail')
@@ -51,12 +51,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     game = serializers.HyperlinkedRelatedField(
         view_name='game_detail',
-        
+        read_only=True
     )
     comments = serializers.HyperlinkedRelatedField(
         view_name='comment_detail',
         many=True,
-        
+        read_only=True
     )
     post_url = serializers.ModelSerializer.serializer_url_field(
         view_name='post_detail')
@@ -70,7 +70,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     post = serializers.HyperlinkedRelatedField(
         view_name='post_detail',
-       
+        read_only=True
     )
     comment_url = serializers.ModelSerializer.serializer_url_field(
         view_name='comment_detail')
