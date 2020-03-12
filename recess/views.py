@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions, status
-from .serializers import GameSerializer, LeagueSerializer, UserProfileSerializer, PostSerializer, CommentSerializer, UserSerializer, UserSerializerWithToken
-from .models import Game, League, UserProfile, Post, Comment
+from .serializers import GameSerializer, LeagueSerializer, UserSerializer, UserSerializerWithToken
+from .models import Game, League
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
@@ -32,43 +32,43 @@ class LeagueDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = LeagueSerializer
 
 
-class UserProfileList(generics.ListCreateAPIView):
-    permission_classes = (permissions.AllowAny,)
-    queryset = UserProfile.objects.all()
-    serializer_class = UserProfileSerializer
+# class UserProfileList(generics.ListCreateAPIView):
+#     permission_classes = (permissions.AllowAny,)
+#     queryset = UserProfile.objects.all()
+#     serializer_class = UserProfileSerializer
 
 
-class UserProfileDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (permissions.AllowAny,)
+# class UserProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+#     permission_classes = (permissions.AllowAny,)
 
-    queryset = UserProfile.objects.all()
-    serializer_class = UserProfileSerializer
-
-
-class PostList(generics.ListCreateAPIView):
-    permission_classes = (permissions.AllowAny,)
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
+#     queryset = UserProfile.objects.all()
+#     serializer_class = UserProfileSerializer
 
 
-class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (permissions.AllowAny,)
-
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-
-class CommentList(generics.ListCreateAPIView):
-    permission_classes = (permissions.AllowAny,)
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
+# class PostList(generics.ListCreateAPIView):
+#     permission_classes = (permissions.AllowAny,)
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
 
 
-class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (permissions.AllowAny,)
+# class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+#     permission_classes = (permissions.AllowAny,)
 
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+
+
+# class CommentList(generics.ListCreateAPIView):
+#     permission_classes = (permissions.AllowAny,)
+#     queryset = Comment.objects.all()
+#     serializer_class = CommentSerializer
+
+
+# class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+#     permission_classes = (permissions.AllowAny,)
+
+#     queryset = Comment.objects.all()
+#     serializer_class = CommentSerializer
 
 
 @api_view(['GET'])
